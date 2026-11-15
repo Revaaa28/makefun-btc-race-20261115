@@ -16,6 +16,40 @@ slippage, constant-product impact vs pool depth): net PnL +$3.08 on $1,000,
 max drawdown 1.39%, 9 round trips. Mean-reversion scalping and washout-chasing
 variants were also grid-tested and lost money on the same window, so they were
 discarded. Deterministic: no clock, no network, no randomness.
+
+Locked configuration (tuned on the dev window; do not change casually):
+  W = 5 (pivot half-window)
+      A swing low/high is only confirmed once 5 bars have printed on each
+      side of it. Five bars filters 1-minute noise while still catching
+      local bottoms early enough to matter.
+  RSI_ZONE = 45.0 (divergence arm threshold)
+      A bullish divergence only arms the bot while RSI(14) at the second
+      low is under 45 — selling pressure must be fading near a bottom,
+      not merely pausing mid-trend.
+  Confirmation (entry trigger)
+      The bot never buys the divergence itself. It enters only when a
+      later bar closes back above the divergence low with RSI rising —
+      the skill's mandatory confirmation that buyers have actually
+      stepped in.
+  SIZE_FRAC = 0.45 (position size)
+      Each entry spends 45% of current cash. One position at a time; the
+      size caps single-trade damage while leaving the trade meaningful.
+  SL_BUF_BPS = 25 (stop buffer)
+      The stop sits 25 bps below the divergence low. If price takes out
+      that low by more than the buffer, the divergence thesis is wrong
+      and the bot exits instead of averaging into a falling knife.
+  Target (exit)
+      The previous confirmed swing high — the nearest level where the
+      prior down-leg's sellers previously stepped in.
+  TSTOP = 60 (time stop, bars)
+      A position still open after 60 bars is closed at market. A bottom
+      that has not bounced within an hour is not the bottom we modelled.
+  ARM_LIFE = 45 (arm lifetime, bars)
+      An armed divergence that never confirms within 45 bars expires;
+      stale setups are discarded rather than chased late.
+  COOLDOWN = 8 (bars)
+      After every exit the bot waits 8 bars before it can arm/enter
+      again, preventing immediate re-entry churn in the same chop.
 """
 
 import os
