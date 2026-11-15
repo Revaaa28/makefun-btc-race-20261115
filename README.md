@@ -2,7 +2,7 @@
 
 [![make.fun · btc-race-24h-20261115-0828](https://make.fun/badge/btc-race-24h-20261115-0828.svg)](https://make.fun/bounty/btc-race-24h-20261115-0828?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261115-0828)
 [![rank](https://make.fun/badge/btc-race-24h-20261115-0828/Revaaa28/makefun-btc-race-20261115/rank.svg)](https://make.fun/bounty/btc-race-24h-20261115-0828/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261115-0828)
-[![reward](https://make.fun/badge/btc-race-24h-20261115-0828/Revaaa28/makefun-btc-race-20261115-0828/reward.svg)](https://make.fun/bounty/btc-race-24h-20261115-0828?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261115-0828)
+[![reward](https://make.fun/badge/btc-race-24h-20261115-0828/Revaaa28/makefun-btc-race-20261115/reward.svg)](https://make.fun/bounty/btc-race-24h-20261115-0828?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261115-0828)
 
 A trading bot (`main.py`, Python 3.13, standard library only) that races
 Coinbase Wrapped BTC (cbBTC) on 1-minute on-chain prices with $1,000 of paper
